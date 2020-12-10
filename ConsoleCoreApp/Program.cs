@@ -77,10 +77,31 @@ namespace ConsoleCoreApp
 
                 //const string answer = "42";
                 var str = newTask.Question;
-                var tipe = newTask.TypeId;
+                var typeTask = newTask.TypeId;
                 var answer = "";
 
                 //СЮДА КОД С ЗАДАНИЯМИ
+                if (typeTask == "json")
+                {
+                    var input = newTask.Question;
+                    if (input.IndexOf('.') != -1) throw new Exception("Allert");
+                    var sum = 0;
+
+                    var currentNumber = new StringBuilder();
+                    foreach (var e in input)
+                    {
+                        if (e == '-' || e >= '0' && e <= '9')
+                        {
+                            currentNumber.Append(e);
+                        }
+                        else if (currentNumber.Length != 0)
+                        {
+                            sum += int.Parse(currentNumber.ToString());
+                            currentNumber.Clear();
+                        }
+                    }
+                    var answer = sum.ToString(); 
+                }
 
                 Console.WriteLine(
                     $"Нажми ВВОД, чтобы ответить на полученную задачу самым правильным ответом: {answer}");
