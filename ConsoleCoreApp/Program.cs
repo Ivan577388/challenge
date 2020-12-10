@@ -10,6 +10,23 @@ namespace ConsoleCoreApp
     // Для запуска приложения необходимо скачать и установить подходящую версию .NET Core.
     // Скачать можно тут: https://dotnet.microsoft.com/download/dotnet-core
     // Какая версия .NET Core нужна можно посмотреть в свойствах проекта.
+    [TestFixture]
+    public class DeterminantTest 
+    {
+        [TestCase("{\"tenable\":\"-65\",\"fghf\":\"45\",\"houds\":\"4\",\"agdgdy\":\"37\",\"mso\":\"614\"}", 631)]
+        [TestCase("{\"ghfcgfe\":\"505\",\"fgchhfgjf\":\"-86765\",\"hfhhds\":\"4\",\"aggjhgy\":\"37\"}", -86219)]
+        [TestCase("{\"te\":\"0\"}", 0)]
+        [TestCase("{\"adsf\":\"-6\",\"afasfs\":\"6\"}", 0)]
+        [TestCase("{\"dgde\":\"-34\",\"ssddgf\":\"345\",\"sdgdgs\":\"0\",\"dgdfgy\":\"7\",\"dgdfgdg\":\"4\"}", 322)]
+        [TestCase("{\"a\":\"-1\",\"b\":\"2\",\"c\":\"-3\"}", -2)]
+        [TestCase("{\"sfsf\":\"1000000000000\",\"fdvdshf\":\"-1\"}", 999999999999)]
+
+        public void TestCases(string input, int expected)
+        {
+            Assert.AreEqual(expected, /*Method*/(input));
+        }
+    }
+    
     class Program
     {
         static async Task Main(string[] args)
